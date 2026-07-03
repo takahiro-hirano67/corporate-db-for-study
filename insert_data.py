@@ -1,4 +1,4 @@
-"""国税庁の法人番号データ(CSV形式)をSQLite3にインポートするモジュール"""
+"""国税庁の法人全件データ(CSV形式)をSQLite3にインポートするモジュール"""
 
 import csv
 import sqlite3
@@ -36,8 +36,8 @@ def import_corporate_data_from_csv() -> None:
                     corporate_number,
                     corporate_name
                 ) VALUES (
-                    :corporate_number,
-                    :corporate_name
+                    :corporate_number_data,
+                    :corporate_name_data
                 )
             """
 
@@ -53,8 +53,8 @@ def import_corporate_data_from_csv() -> None:
 
                 # INSERT文に渡すためのデータセット(辞書)を作成
                 insert_values_dict = {
-                    "corporate_number": corporate_number,
-                    "corporate_name": corporate_name,
+                    "corporate_number_data": corporate_number,
+                    "corporate_name_data": corporate_name,
                 }
 
                 # 1件ずつDBにINSERTを実行
