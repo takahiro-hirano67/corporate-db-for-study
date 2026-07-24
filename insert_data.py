@@ -3,6 +3,8 @@
 import csv
 import sqlite3
 
+from tqdm import tqdm
+
 # 設定情報
 from config import CSV_PATH, DB_PATH
 
@@ -42,7 +44,7 @@ def import_corporate_data_from_csv() -> None:
             """
 
             # 4. CSVの行を1件ずつ取り出して処理するループ
-            for row in reader:
+            for row in tqdm(iterable=reader, desc="インポート進捗", unit="件"):
                 # 行から挿入する値を取得
                 corporate_number = get_csv_value(index=1, row=row)
                 corporate_name = get_csv_value(index=6, row=row)

@@ -1,8 +1,8 @@
 """法人テーブルを作成するモジュール"""
 
-from config import DB_PATH
-
 import sqlite3
+
+from config import DB_PATH
 
 # DBに接続
 connection = sqlite3.connect(database=DB_PATH)

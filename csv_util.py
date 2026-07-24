@@ -1,6 +1,5 @@
 """CSVから値を抽出するためのヘルパーモジュール"""
 
-
 def get_csv_value(index: int, row: list[str]) -> str | None:
     """CSVのカラムインデックスから文字列を抽出し、トリミングします。
 
@@ -20,7 +19,7 @@ def get_csv_value(index: int, row: list[str]) -> str | None:
 
 # 動作確認
 if __name__ == "__main__":
-    import csv
+    import csv  # noqa: I001 遅延インポートのため
     from config import CSV_PATH
     
     LIMIT_ROWS = 10  # 読み込む最大行数
